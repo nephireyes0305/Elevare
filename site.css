@@ -58,3 +58,26 @@ body{background:#fdfcf9}
 .footer-bottom p,.footer-bottom a{font-size:13px}
 @media(max-width:940px){.footer .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:480px){.footer .footer-grid{grid-template-columns:1fr}}
+
+/* Warm orange accents against the existing navy and gold palette. */
+:root{--orange:#f79442;--orange-dark:#8b3b08}
+.hero .eyebrow,.page-intro .eyebrow::before{color:#f79442}
+.hero .eyebrow{color:var(--orange-dark)}
+.hero-photo{border-bottom:4px solid var(--orange)}
+.program-card{border-top:3px solid var(--orange)}
+.button.orange,.actions .button,.hero-actions .button:not(.outline){background:var(--orange);color:#17243b}
+.button.orange:hover,.actions .button:hover,.hero-actions .button:not(.outline):hover{background:#ffac68}
+button.button{font:inherit;font-size:14px;font-weight:750;cursor:pointer}
+button.button:disabled{opacity:.55;cursor:default}
+.registration-actions,.included-courses{margin-block:20px}
+.enrollment-grid{margin-top:20px}
+.elevare-dialog{width:min(530px,calc(100% - 28px));max-height:calc(100% - 36px);overflow:auto;border:1px solid var(--line);border-top:5px solid var(--orange);border-radius:9px;padding:26px;color:var(--ink)}
+.elevare-dialog::backdrop{background:#101e37bb}
+.elevare-dialog h2{font-size:2rem;margin:0 24px 12px 0}
+.elevare-dialog form{margin-top:15px}
+.elevare-dialog label{display:block;font-weight:bold;margin-top:10px}
+.elevare-dialog input{width:100%;padding:8px;margin:4px 0;border:1px solid #8593a8;border-radius:4px;font:inherit}
+.elevare-dialog fieldset{border:0;margin:0;padding:0;min-width:0}
+.elevare-dialog .button{margin-block:12px}
+.dialog-close{position:absolute;right:12px;top:10px;font-size:21px;border:0;background:transparent;color:inherit;cursor:pointer}
+.form-status{font-size:14px;color:var(--muted)}

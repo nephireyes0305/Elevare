@@ -13,7 +13,16 @@
 <li>Use the code to complete your registration. After signing in, open <strong>My Trainings</strong> to access your two courses.</li>
 </ol>
 <p class="muted">The ₱200 CareLink Community contribution is separate from Elevare training enrollment.</p>
-<p class="notice" role="status">Online registration and code redemption are currently unavailable. These steps describe how enrollment will work once it opens.</p>
+<div class="registration-actions"><button class="button orange" type="button" data-dialog="registration-code">Register Now</button></div>
+<dialog class="elevare-dialog" id="registration-code" aria-labelledby="code-title">
+<button class="dialog-close" type="button" data-close aria-label="Close">×</button>
+<h2 id="code-title">Registration code</h2>
+<p>Enter the code issued by your ambassador after payment verification.</p>
+<form id="code-form"><label for="code">Registration code</label>
+<input id="code" name="code" required maxlength="100" autocomplete="off" autocapitalize="characters" spellcheck="false">
+<button class="button orange" type="submit">Verify code</button>
+<p role="status" class="form-status">Online code verification is pending setup.</p>
+</form></dialog>
 <a class="text-link" href="trainings.html">Browse trainings →</a></div></section></main><footer class="footer">
 <div class="wrap footer-grid">
 <section aria-label="Elevare company information">
@@ -30,4 +39,4 @@
 <section aria-labelledby="footer-social"><h2 id="footer-social">Follow Elevare</h2><ul class="social-placeholders"><li>Facebook</li><li>Instagram</li></ul><p>Social links coming soon.</p></section>
 </div>
 <div class="wrap footer-bottom"><p>© 2026 Elevare Life Coaching Services</p><a href="certifications.html">Business registration <span aria-hidden="true">↗</span></a></div>
-</footer></body></html>
+</footer><script src="portal.js" defer></script></body></html>
