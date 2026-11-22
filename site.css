@@ -101,3 +101,8 @@ button.button:disabled{opacity:.55;cursor:default}
 .learner-shell .review-tabs{display:flex;flex-wrap:wrap;gap:.4rem;margin:.9rem 0}
 .learner-shell .receipt{max-height:65vh;margin:.6rem 0}
 .learner-shell dd{margin:0 0 .6rem;overflow-wrap:anywhere}
+
+.learner-banner .learner-logo{display:inline-block;margin-bottom:.85rem;border-radius:.45rem;overflow:hidden;background:#fff}
+.learner-banner .learner-logo img{display:block;width:clamp(100px,19vw,145px);height:auto}
+.registration-guide ol{padding-inline-start:1.4rem;margin:.8rem 0 1.1rem}
+.registration-guide li + li{margin-top:.65rem}

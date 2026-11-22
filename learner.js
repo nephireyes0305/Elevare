@@ -35,6 +35,12 @@ function readReceipt(file) {
 
 function registration() {
   const form = el("application");
+  const start = el("start-registration");
+  start.addEventListener("click", () => {
+    form.hidden = false;
+    start.setAttribute("aria-expanded", "true");
+    el("application-title").focus();
+  });
   const submit = form.querySelector("[type=submit]");
   const chooser = form.elements.ambassadorId;
   const requestId = crypto.randomUUID();

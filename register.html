@@ -1,8 +1,19 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Learner Registration | Elevare</title><link rel="stylesheet" href="site.css"><script src="learner.js" defer></script></head>
-<body data-page="register"><main class="learner-shell"><header class="learner-banner"><a href="index.html">Elevare</a><h1>Learner Registration</h1><p>Apply to join the training program.</p></header>
-<form id="application">
-<section class="learner-card"><h2>Personal Information</h2><div class="learner-grid">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Learner Registration | Elevare</title><link rel="stylesheet" href="site.css?v=registration-guide"><script src="learner.js?v=registration-guide" defer></script></head>
+<body data-page="register"><main class="learner-shell"><header class="learner-banner"><a class="learner-logo" href="index.html"><img src="assets/brand.jpg" alt="Elevare Life Coaching Services" width="1536" height="1024"></a><h1>Learner Registration</h1><p>Apply to join the training program.</p></header>
+<section class="learner-card registration-guide" id="registration-guide" aria-labelledby="guide-title">
+<h2 id="guide-title">How to register</h2>
+<ol>
+  <li><strong>Complete your registration.</strong> Choose a username and password and keep them somewhere safe. Use a working email address you can access for verification and updates.</li>
+  <li><strong>Prepare your proof of payment.</strong> Complete your payment before you start the form. Have your payment reference ID and a screenshot or receipt ready to upload.</li>
+  <li><strong>Check your email after submitting.</strong> You’ll receive a confirmation that we received your application.</li>
+  <li><strong>Allow 5–7 business days for verification.</strong> Once verified, you’ll receive another email with your Learner ID, username, and the link to access your training.</li>
+  <li><strong>Sign in to your training.</strong> Open the link in your approval email and use the username and password you chose when you registered.</li>
+</ol>
+<button type="button" id="start-registration" class="button" aria-controls="application" aria-expanded="false">Register Now</button>
+</section>
+<form id="application" hidden>
+<section class="learner-card"><h2 id="application-title" tabindex="-1">Personal Information</h2><div class="learner-grid">
 <label>First Name<input name="firstName" maxlength="80" required></label><label>Middle Name<input name="middleName" maxlength="80"></label><label>Last Name<input name="lastName" maxlength="80" required></label><label>Suffix<input name="suffix" maxlength="80"></label>
 <label>Birthdate<input name="birthdate" type="date" required></label>
 <label>Gender<select name="gender" required><option value="">Select</option><option>Female</option><option>Male</option><option>Other</option></select></label>
