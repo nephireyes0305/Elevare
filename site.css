@@ -106,3 +106,14 @@ button.button:disabled{opacity:.55;cursor:default}
 .learner-banner .learner-logo img{display:block;width:clamp(100px,19vw,145px);height:auto}
 .registration-guide ol{padding-inline-start:1.4rem;margin:.8rem 0 1.1rem}
 .registration-guide li + li{margin-top:.65rem}
+
+/* Compact header shared by registration and admin review. */
+.learner-brandbar{background:#fff;border-bottom:1px solid var(--line)}
+.learner-brandbar-inner{max-width:850px;margin:0 auto;padding:0 1rem;display:flex;align-items:center;min-height:64px}
+.learner-brandbar .learner-logo{display:inline-flex;align-items:center}
+.learner-brandbar .learner-logo img{width:112px;height:auto}
+.learner-shell.learner-page{margin:1.6rem auto 2rem}
+.learner-page-title{padding:0 0 .95rem;border-bottom:1px solid var(--line)}
+.learner-page-title h1{font-size:clamp(2rem,4.7vw,3.2rem);color:var(--navy)}
+.learner-page-title h1::after{content:"";display:block;width:2.6rem;height:3px;background:var(--orange,#efb947);margin:.65rem 0}
+.learner-page-title p{color:var(--muted)}
