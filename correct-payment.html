@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Correct Payment Information | Elevare</title>
+<link rel="stylesheet" href="site.css">
+<script src="learner.js" defer></script>
+</head>
+<body data-page="correction">
+<main class="learner-shell">
+<header class="learner-banner"><h1>Correct payment information</h1><p>Update your payment details using your existing application.</p></header>
+<form id="correct-payment" class="learner-card">
+<p>Review the instructions in your correction email before submitting.</p>
+<div class="learner-grid">
+<label>Payment method<select name="method" required><option value="">Select</option><option>GCash</option><option>Maya</option><option>MariBank</option><option>Bank Transfer</option></select></label>
+<label>Payment reference number<input name="reference" required maxlength="80"></label>
+<label>Proof of payment (JPG, PNG or PDF, up to 2 MB)<input name="receipt" type="file" accept="image/jpeg,image/png,application/pdf" required></label>
+</div>
+<button class="button">Resubmit payment details</button>
+</form>
+<p id="status" role="status" aria-live="polite"></p>
+</main>
+</body>
+</html>

@@ -172,8 +172,10 @@ function registrationReview(getToken) {
     for (const button of decisions) {
       const pending = current.status === "Pending Verification";
       const retry = current.status === button.dataset.decision && current.emailStatus !== "Decision email sent";
-      button.hidden = !pending && !retry;
-      button.textContent = retry ? "Retry decision email" : button.dataset.decision === "Verified" ? "Verify" : "Reject";
+      const correction = button.dataset.decision === "Correction Requested";
+      const resend = correction && current.status === "Correction Requested";
+      button.hidden = !pending && !retry && !resend;
+      button.textContent = correction ? (resend ? "Resend correction link" : "Request Correction") : retry ? "Retry decision email" : button.dataset.decision === "Verified" ? "Verify" : "Reject";
     }
     el("decision-comment").disabled = current.status !== "Pending Verification";
     el("review").hidden = false;
@@ -192,13 +194,21 @@ function registrationReview(getToken) {
     });
   };
   for (const button of decisions) button.onclick = () => {
-    if (!current || !confirm("Submit this registration decision?")) return;
+    if (!current) return;
+    const comment = el("decision-comment").value.trim();
+    if (button.dataset.decision === "Correction Requested" && current.status === "Pending Verification" && !comment) {
+      message.textContent = "Explain what the learner should correct.";
+      el("decision-comment").focus();
+      return;
+    }
+    if (!confirm("Submit this registration decision?")) return;
     decisions.forEach(item => { item.disabled = true; });
     busy(button,message,async () => {
       const result = await api("adminDecideLearner",{
         token:getToken(),learnerId:current.learnerId,decision:button.dataset.decision,
         comment:el("decision-comment").value
       });
+      current.comment = comment;
       current.status = result.status;
       current.emailStatus = result.emailSent ? "Decision email sent" : "Decision email failed";
       render(current);
@@ -207,6 +217,31 @@ function registrationReview(getToken) {
   };
 }
 
+function correctionForm() {
+  const form = el("correct-payment");
+  const params = new URLSearchParams(location.hash.slice(1));
+  const learnerId = params.get("id");
+  const token = params.get("token");
+  if (!learnerId || !token) {
+    form.hidden = true;
+    status.textContent = "Open the private correction link in your email.";
+    return;
+  }
+  form.onsubmit = event => {
+    event.preventDefault();
+    const fields = Object.fromEntries(new FormData(form));
+    busy(event.submitter,status,async () => {
+      fields.receipt = await readReceipt(fields.receipt);
+      await api("resubmitLearnerPayment",{...fields,learnerId,token});
+      form.reset();
+      form.hidden = true;
+      history.replaceState(null,"",location.pathname);
+      status.textContent = "Payment details received. Your application is Pending Verification.";
+    });
+  };
+}
+
 const page = document.body.dataset.page;
 if (page === "register") registration();
+else if (page === "correction") correctionForm();
 else authentication(page === "admin");
