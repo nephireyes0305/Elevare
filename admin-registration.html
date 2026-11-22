@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Admin Portal | Elevare</title><link rel="stylesheet" href="site.css"><script src="learner.js" defer></script></head>
+<body data-page="admin"><main class="learner-shell"><header class="learner-banner"><a href="index.html">Elevare</a><h1>Admin Portal</h1><p>Review learner registration and payment.</p></header>
+<form id="sign-in" class="learner-card"><div class="learner-grid">
+<label>Username<input name="username" required autocomplete="username"></label>
+<label>Password<input name="password" type="password" required autocomplete="current-password"></label></div>
+<button class="button">Sign in</button></form>
+<section id="admin-portal" class="learner-card" hidden>
+<button class="button" id="open-review">Verify Registration</button> <button type="button" id="sign-out">Sign out</button>
+</section>
+<dialog id="review-window"><form method="dialog"><button>Close</button></form>
+<h2>Verify Registration</h2>
+<form id="lookup" class="learner-card"><label>Learner ID<input name="learnerId" required maxlength="60"></label><button class="button">Find application</button></form>
+<p id="review-status" role="status"></p>
+<section id="review" hidden>
+<div class="review-tabs" role="group" aria-label="Application sections">
+<button type="button" data-section="personal" aria-pressed="true">Personal Information</button>
+<button type="button" data-section="co" aria-pressed="false">Co-Learners</button>
+<button type="button" data-section="payment" aria-pressed="false">Payment Confirmation</button>
+</div>
+<div id="personal"></div><div id="co" hidden></div><div id="payment" hidden></div>
+<div class="learner-card"><label>Comment for rejection (optional)<textarea id="decision-comment" maxlength="1000"></textarea></label>
+<button type="button" data-decision="Verified" class="button">Verify</button>
+<button type="button" data-decision="Rejected">Reject</button></div>
+</section></dialog><p id="status" role="status" aria-live="polite"></p></main></body></html>
