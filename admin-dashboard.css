@@ -1,0 +1,21 @@
+body[data-page=admin]{background:#f1f4f8}
+.learner-shell.learner-page{max-width:1220px}
+body[data-page=admin] .learner-brandbar-inner{max-width:1220px}
+body[data-page=admin] .learner-page-title{background:var(--navy);color:white;padding:1.5rem;border-radius:10px;border-bottom:3px solid var(--orange,#efb947)}
+body[data-page=admin] .learner-page-title h1{color:white}
+body[data-page=admin] .learner-page-title p{color:#d8e0ed}
+.admin-toolbar,.admin-heading,.admin-range{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem}
+.admin-toolbar{margin:1rem 0}
+.admin-toolbar nav{display:flex;flex-wrap:wrap;gap:.4rem}
+.admin-toolbar button,.admin-panel button:not(.button),#reload-dashboard{padding:.55rem .75rem;border:1px solid var(--line);background:white;color:var(--navy);border-radius:5px;font:inherit}
+.admin-toolbar button[aria-pressed=true]{background:var(--navy);color:white}
+.admin-panel{background:white;border:1px solid var(--line);border-radius:10px;padding:1.2rem;margin-top:1rem}
+.admin-panel h2{margin-bottom:.35rem}
+.admin-panel p{color:var(--muted)}
+.admin-table{overflow:auto;margin-top:.9rem}
+.admin-table table{width:100%;border-collapse:collapse;text-align:left;font-size:.9rem}
+.admin-table th,.admin-table td{border-bottom:1px solid var(--line);padding:.7rem;vertical-align:middle}
+.admin-table th{white-space:nowrap;background:#f3f6fa}
+.admin-range{justify-content:flex-start;align-items:end;margin:1rem 0}
+#referral-list{margin-top:1.4rem}
+#report-output h3{margin-top:1rem}

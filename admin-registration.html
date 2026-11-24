@@ -1,14 +1,28 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Admin Portal | Elevare</title><link rel="stylesheet" href="site.css?v=compact-header"><script src="learner.js?v=registration-guide" defer></script></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Admin Portal | Elevare</title><link rel="stylesheet" href="admin-base.css"><script src="admin-review.js" defer></script><link rel="stylesheet" href="admin-dashboard.css"><script src="admin-dashboard.js" defer></script></head>
 <body data-page="admin"><header class="learner-brandbar"><div class="learner-brandbar-inner"><a class="learner-logo" href="index.html"><img src="assets/brand.jpg" alt="Elevare Life Coaching Services" width="1536" height="1024"></a></div></header>
 <main class="learner-shell learner-page"><header class="learner-page-title"><h1>Admin Portal</h1><p>Review learner registration and payment.</p></header>
 <form id="sign-in" class="learner-card"><div class="learner-grid">
 <label>Username<input name="username" required autocomplete="username"></label>
 <label>Password<input name="password" type="password" required autocomplete="current-password"></label></div>
 <button class="button">Sign in</button></form>
-<section id="admin-portal" class="learner-card" hidden>
-<button class="button" id="open-review">Verify Registration</button> <button type="button" id="sign-out">Sign out</button>
+<section id="admin-portal" hidden>
+<div class="admin-toolbar"><nav aria-label="Admin sections">
+<button type="button" data-view="verification" aria-pressed="true">Verification <span id="pending-count"></span></button>
+<button type="button" data-view="learners" aria-pressed="false">Learners</button>
+<button type="button" data-view="ambassadors" aria-pressed="false">Ambassadors</button>
+<button type="button" data-view="reports" aria-pressed="false">Reports</button>
+</nav><button type="button" id="sign-out">Sign out</button></div>
+<div id="dashboard-status" role="status"></div>
+<button type="button" id="reload-dashboard">Refresh data</button>
+<section class="admin-panel" id="view-verification"><div class="admin-heading"><div><h2>Pending applications</h2><p>Review applications awaiting a decision, including payment resubmissions.</p></div><button class="button" id="open-review">Find by Learner ID</button></div><div id="pending-list"></div></section>
+<section class="admin-panel" id="view-learners" hidden><div class="admin-heading"><div><h2>Learner directory</h2><p>Enrollment date is the original registration date. Training tracking will connect to the learner portal.</p></div><label>Sort by<select id="learner-sort"><option value="recent">Enrollment date · Newest first</option><option value="oldest">Enrollment date · Oldest first</option><option value="status">Training status</option></select></label></div><div id="learner-list"></div></section>
+<section class="admin-panel" id="view-ambassadors" hidden><div class="admin-heading"><div><h2>Ambassadors</h2><p>Select an ambassador to see their referrals.</p></div><button class="button" type="button" id="ambassador-placeholder">Register Ambassador</button></div><div id="ambassador-list"></div><div id="referral-list" hidden></div></section>
+<section class="admin-panel" id="view-reports" hidden><h2>Ambassador referral report</h2><p>Counts all applications submitted in the selected period. Times are Philippine time (UTC+8).</p>
+<form id="report-range" class="admin-range">
+<label>From<input name="start" type="datetime-local" required></label><label>Through<input name="end" type="datetime-local" required></label><button class="button" type="submit">Generate report</button><button type="button" id="export-report" disabled>Download CSV</button></form><p id="report-status" role="status"></p><div id="report-output"></div></section>
 </section>
+<dialog id="ambassador-dialog"><h2>Ambassador registration</h2><p>Under review. Proposed requirements are an existing learner account and a ₱1,200 ambassador fee.</p><form method="dialog"><button class="button">Close</button></form></dialog>
 <dialog id="review-window"><form method="dialog"><button>Close</button></form>
 <h2>Verify Registration</h2>
 <form id="lookup" class="learner-card"><label>Learner ID<input name="learnerId" required maxlength="60"></label><button class="button">Find application</button></form>
