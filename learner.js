@@ -35,6 +35,22 @@ function readReceipt(file) {
 
 function registration() {
   const form = el("application");
+  for (const button of form.querySelectorAll("[data-password]")) {
+    const field = el(button.dataset.password);
+    const label = button.textContent.slice("Show ".length);
+    const hide = () => {
+      field.type = "password";
+      button.textContent = "Show " + label;
+      button.setAttribute("aria-pressed","false");
+    };
+    button.addEventListener("click", () => {
+      if (field.type === "text") return hide();
+      field.type = "text";
+      button.textContent = "Hide " + label;
+      button.setAttribute("aria-pressed","true");
+    });
+    form.addEventListener("reset",hide);
+  }
   const start = el("start-registration");
   start.addEventListener("click", () => {
     form.hidden = false;

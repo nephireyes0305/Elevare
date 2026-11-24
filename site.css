@@ -117,3 +117,13 @@ button.button:disabled{opacity:.55;cursor:default}
 .learner-page-title h1{font-size:clamp(2rem,4.7vw,3.2rem);color:var(--navy)}
 .learner-page-title h1::after{content:"";display:block;width:2.6rem;height:3px;background:var(--orange,#efb947);margin:.65rem 0}
 .learner-page-title p{color:var(--muted)}
+
+body[data-page="register"] .learner-page-title h1{font-size:clamp(1.65rem,4vw,2.4rem)}
+body[data-page="register"] .learner-brandbar .learner-logo img{width:clamp(150px,24vw,190px)}
+.learner-address{grid-column:1/-1}
+.registration-bank{margin:.65rem 0 .2rem;padding:.75rem 1rem;background:var(--cream);border-left:3px solid var(--orange,#efb947)}
+.registration-bank dl{margin:.35rem 0 0}
+.registration-bank dt{font-weight:bold}
+.registration-bank dd{margin:0}
+.registration-bank dd + dt{margin-top:.25rem}
+.password-toggle{margin-top:.35rem;padding:.2rem 0;border:0;background:transparent;color:var(--navy);font:inherit;font-size:.9rem;text-decoration:underline}

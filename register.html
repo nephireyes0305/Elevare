@@ -1,12 +1,16 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Learner Registration | Elevare</title><link rel="stylesheet" href="site.css?v=compact-header"><script src="learner.js?v=registration-guide" defer></script></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Learner Registration | Elevare</title><link rel="stylesheet" href="site.css?v=elcs-registration"><script src="learner.js?v=elcs-registration" defer></script></head>
 <body data-page="register"><header class="learner-brandbar"><div class="learner-brandbar-inner"><a class="learner-logo" href="index.html"><img src="assets/brand.jpg" alt="Elevare Life Coaching Services" width="1536" height="1024"></a></div></header>
 <main class="learner-shell learner-page"><header class="learner-page-title"><h1>Learner Registration</h1><p>Apply to join the training program.</p></header>
 <section class="learner-card registration-guide" id="registration-guide" aria-labelledby="guide-title">
 <h2 id="guide-title">How to register</h2>
 <ol>
   <li><strong>Complete your registration.</strong> Choose a username and password and keep them somewhere safe. Use a working email address you can access for verification and updates.</li>
-  <li><strong>Prepare your proof of payment.</strong> Complete your payment before you start the form. Have your payment reference ID and a screenshot or receipt ready to upload.</li>
+  <li><strong>Prepare your proof of payment.</strong> Complete your payment before you start the form. Have your payment reference ID and a screenshot or receipt ready to upload.
+  <div class="registration-bank"><strong>BPI Bank Account</strong><dl>
+    <dt>Account Name</dt><dd>Elevare Life Coaching Services</dd>
+    <dt>Account Number</dt><dd>2269012381</dd>
+  </dl></div></li>
   <li><strong>Check your email after submitting.</strong> You’ll receive a confirmation that we received your application.</li>
   <li><strong>Allow 5–7 business days for verification.</strong> Once verified, you’ll receive another email with your Learner ID, username, and the link to access your training.</li>
   <li><strong>Sign in to your training.</strong> Open the link in your approval email and use the username and password you chose when you registered.</li>
@@ -21,13 +25,13 @@
 <label>Marital status<select name="maritalStatus" required><option value="">Select</option><option>Single</option><option>Married</option><option>Separated</option><option>Widowed</option><option>Other</option></select></label>
 <label>Mobile Number<input name="phone" type="tel" required maxlength="40"></label>
 <label>Additional Number<input name="phone2" type="tel" maxlength="40"></label>
-<label>Complete Address<input name="address" required maxlength="250"></label>
+<label class="learner-address">Complete Address<input name="address" required maxlength="250" autocomplete="street-address"></label>
 <label>Ambassador<select name="ambassadorId" required><option value="">Loading ambassadors…</option></select></label>
 </div><p id="ambassador-note"></p></section>
 <section class="learner-card"><h2>Login Details</h2><div class="learner-grid">
 <label>Username<input name="username" required autocomplete="username" pattern="[A-Za-z0-9_.\-]{3,32}" minlength="3" maxlength="32"></label>
-<label>Password<input name="password" required type="password" minlength="8" maxlength="128" autocomplete="new-password"></label>
-<label>Confirm Password<input name="confirmPassword" required type="password" minlength="8" maxlength="128" autocomplete="new-password"></label></div></section>
+<div class="learner-password"><label>Password<input id="password" name="password" required type="password" minlength="8" maxlength="128" autocomplete="new-password"></label><button type="button" class="password-toggle" data-password="password" aria-controls="password" aria-pressed="false">Show password</button></div>
+<div class="learner-password"><label>Confirm Password<input id="confirmPassword" name="confirmPassword" required type="password" minlength="8" maxlength="128" autocomplete="new-password"></label><button type="button" class="password-toggle" data-password="confirmPassword" aria-controls="confirmPassword" aria-pressed="false">Show confirmation password</button></div></div></section>
 <section class="learner-card"><h2>Email Verification</h2><div class="learner-grid">
 <label>Email address<input name="email" required type="email" maxlength="254" autocomplete="email"></label>
 <label>Email OTP<input name="otp" required inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6"></label>
